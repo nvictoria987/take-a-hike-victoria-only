@@ -1,0 +1,6 @@
+﻿  firstUI.cpp
+c:\users\victoria\desktop\takeahikevictoria\takeahikevictoria\firstui.cpp(37): error C2612: trailing 'type' illegal in base/member initializer list
+c:\users\victoria\desktop\takeahikevictoria\takeahikevictoria\firstui.cpp(100): fatal error C1004: unexpected end-of-file found
+  useraccounts.cpp
+c:\users\victoria\desktop\takeahikevictoria\takeahikevictoria\useraccounts.cpp(4): error C2530: 'AccountManagement::UserAccounts::_persistentData': references must be initialized
+  Generating Code...
