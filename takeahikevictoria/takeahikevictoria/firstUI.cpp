@@ -3,6 +3,7 @@
 #include <memory>                                                                     // unique_ptr, make_unique<>()
 #include <string>                                                                     // string, getline()
 #include <vector>
+#include <iomanip>
 
 #include "useraccounts.hpp"                                  // Include for now - will replace next increment
 //#include "Domain/Library/Books.hpp"                                                   // Include for now - will replace next increment
@@ -17,8 +18,7 @@
 namespace UI
 {
 	// Default constructor
-    SimpleUI::SimpleUI()
-	: _accounts (std::make_unique<AccountManagement::UserAccounts>())   //victoria- i cannot get this line to work // will replace these factory calls with abstract factory calls in the next increment
+	SimpleUI::SimpleUI() : _accounts(std::make_unique<AccountManagement::UserAccounts>()) {}  //victoria- i cannot get this line to work // will replace these factory calls with abstract factory calls in the next increment
 	 // _bookHandler(std::make_unique<Domain::Library::Books>()),   // will replace these factory calls with abstract factory calls in the next increment
 		//_loggerPtr(std::make_unique<TechnicalServices::Logging::SimpleLogger>()),   // will replace these factory calls with abstract factory calls in the next increment
 	  //_persistentData(TechnicalServices::Persistence::SingletonDB::instance())    // will replace these factory calls with abstract factory calls in the next increment
