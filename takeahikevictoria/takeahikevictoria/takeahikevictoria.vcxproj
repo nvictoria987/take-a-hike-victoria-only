@@ -115,12 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="firstUI.cpp" />
+    <ClCompile Include="firstDB.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="useraccounts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccountManagementHandler.hpp" />
+    <ClInclude Include="firstDB.hpp" />
     <ClInclude Include="firstUI.hpp" />
     <ClInclude Include="PersistenceHandler.hpp" />
     <ClInclude Include="useraccounts.hpp" />

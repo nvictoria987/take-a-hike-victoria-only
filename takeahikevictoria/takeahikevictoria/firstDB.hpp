@@ -17,7 +17,7 @@ namespace Persistence
     public:
       using PersistenceHandler::PersistenceHandler;    // inherit constructors
       SimpleDB();
-
+	  //static SimpleDB & instance();
 
       // Operations
       std::vector<std::string> findRoles()                                       override;  // Returns list of all legal roles

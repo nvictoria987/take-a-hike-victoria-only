@@ -15,7 +15,11 @@ namespace Persistence
 		//_logger << "Simple DB being used and has been successfully initialized";
 	}
 
-
+	/*SimpleDB & SimpleDB::instance()
+	{
+		static SimpleDB theInstance;
+		return theInstance;
+	}*/
 
 	SimpleDB::~SimpleDB() noexcept
 	{
