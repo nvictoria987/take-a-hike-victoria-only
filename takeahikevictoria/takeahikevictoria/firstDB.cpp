@@ -15,11 +15,11 @@ namespace Persistence
 		//_logger << "Simple DB being used and has been successfully initialized";
 	}
 
-	/*SimpleDB & SimpleDB::instance()
+	SimpleDB & SimpleDB::instance()
 	{
 		static SimpleDB theInstance;
 		return theInstance;
-	}*/
+	}
 
 	SimpleDB::~SimpleDB() noexcept
 	{
@@ -30,7 +30,7 @@ namespace Persistence
 
 	std::vector<std::string> SimpleDB::findRoles()
 	{
-		return { "TrailAdmin", "TrailUser"};
+		return { "TrailAdmin", "TrailUser" };
 	}
 
 	UserCredentials SimpleDB::findCredentialsByName(const std::string & name)
@@ -49,7 +49,7 @@ namespace Persistence
 		std::string message = __func__;
 		message += " attempt to find user \"" + name + "\" failed";
 
-	//	_logger << message;
+		//	_logger << message;
 
 		throw PersistenceHandler::NoSuchUser(message);
 	}
