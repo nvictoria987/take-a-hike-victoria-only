@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -116,7 +117,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="firstDB.cpp" />
+    <ClCompile Include="firstUI.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="useraccount.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccountManagementHandler.hpp" />

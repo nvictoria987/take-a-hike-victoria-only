@@ -10,7 +10,7 @@
 //#include "Domain/Library/Session.hpp"
 
 //#include "TechnicalServices/Logging/LoggerHandler.hpp"
-//#include "TechnicalServices/Logging/SimpleLogger.hpp"                                 // Include for now - will replace next increment
+#include "firstDB.hpp"                                 // Include for now - will replace next increment
 //#include "TechnicalServices/Persistence/SingletonDB.hpp"                              // Include for now - will replace next increment
 
 #include "firstUI.hpp"

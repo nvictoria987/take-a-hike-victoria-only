@@ -14,9 +14,8 @@
 namespace AccountManagement
 {
 	// Default constructor
-	UserAccounts::UserAccounts()
-	//	: _persistentData(Persistence::SimpleDB::instance())        // will replace hard coded implementation class next increment
-		//_loggerPtr(std::make_unique<TechnicalServices::Logging::SimpleLogger>())    // will replace hard coded implementation class next increment
+	UserAccounts::UserAccounts() : _persistentData(Persistence::SimpleDB::instance())        // will replace hard coded implementation class next increment
+			//_loggerPtr(std::make_unique<TechnicalServices::Logging::SimpleLogger>())    // will replace hard coded implementation class next increment
 	{
 		//_logger << "UserAccounts being used and has been successfully initialized";
 	}

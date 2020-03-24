@@ -1,1 +1,2 @@
-﻿  takeahikevictoria.vcxproj -> C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe
+﻿  firstUI.cpp
+c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\firstui.cpp(21): error C2530: 'UI::SimpleUI::_persistentData': references must be initialized

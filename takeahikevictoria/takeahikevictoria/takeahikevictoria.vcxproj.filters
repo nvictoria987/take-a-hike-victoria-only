@@ -21,6 +21,12 @@
     <ClCompile Include="firstDB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="useraccount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="firstUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccountManagementHandler.hpp">
