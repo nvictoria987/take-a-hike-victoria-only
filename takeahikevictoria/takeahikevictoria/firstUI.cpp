@@ -26,10 +26,10 @@ namespace UI
 
 
 	// Destructor
-	//SimpleUI::~SimpleUI() noexcept
-	//{
+	SimpleUI::~SimpleUI() noexcept
+	{
 	//	//_logger << "Simple UI shutdown successfully";
-	//}
+	}
 
 
 

@@ -1,2 +1,2 @@
-﻿firstUI.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall UI::SimpleUI::~SimpleUI(void)" (??1SimpleUI@UI@@UAE@XZ) referenced in function "public: virtual void * __thiscall UI::SimpleUI::`scalar deleting destructor'(unsigned int)" (??_GSimpleUI@UI@@UAEPAXI@Z)
-C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe : fatal error LNK1120: 1 unresolved externals
+﻿  firstUI.cpp
+  takeahikevictoria.vcxproj -> C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe
