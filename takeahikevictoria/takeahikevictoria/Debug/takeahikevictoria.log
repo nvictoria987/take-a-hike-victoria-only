@@ -1,2 +1,3 @@
-﻿  firstUI.cpp
+﻿  Trails.cpp
+c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\trails.cpp(40): warning C4715: 'TrailManagement::Trails::searchtrailDB': not all control paths return a value
   takeahikevictoria.vcxproj -> C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe

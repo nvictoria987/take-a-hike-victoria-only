@@ -3,7 +3,7 @@
 #include <memory>    // std::unique_ptr
 
 #include "AccountManagementHandler.hpp"
-//#include "MaintainBooksHandler.hpp"
+#include "MaintainTrailHandler.hpp"
 
 
 #include "PersistenceHandler.hpp"
@@ -39,7 +39,7 @@ namespace UI
 	private:
 		// These smart pointers hold pointers to lower architectural layer's interfaces
 		std::unique_ptr<AccountManagement::AccountManagementHandler>  _accounts;
-		//std::unique_ptr<Library::MaintainBooksHandler>                _bookHandler;
+		std::unique_ptr<TrailManagement::MaintainTrailHandler>        _TrailHandler;
 
 		
 		Persistence::PersistenceHandler                  & _persistentData;
