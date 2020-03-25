@@ -27,6 +27,9 @@
     <ClCompile Include="firstUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="createSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccountManagementHandler.hpp">
@@ -45,6 +48,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="firstDB.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaintainTrailHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="createSession.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrailAdminSession.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrailUserSession.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

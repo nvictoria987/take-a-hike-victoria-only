@@ -7,7 +7,7 @@
 
 #include "useraccounts.hpp"                                  // Include for now - will replace next increment
 //#include "Domain/Library/Books.hpp"                                                   // Include for now - will replace next increment
-//#include "Domain/Library/Session.hpp"
+#include "createSession.hpp"
 
 //#include "TechnicalServices/Logging/LoggerHandler.hpp"
 #include "firstDB.hpp"                                 // Include for now - will replace next increment
@@ -81,7 +81,7 @@ namespace UI
 
 
 		// 4) Fetch functionality options for this role
-	   /* std::unique_ptr<Domain::Library::SessionHandler> sessionControl = Domain::Library::SessionHandler::createSession(selectedRole);
+	    std::unique_ptr<TrailManagement::SessionHandler> sessionControl = TrailManagement::SessionHandler::createSession(selectedRole);
 
 		std::vector<std::string> commands = sessionControl->getCommands();
 		unsigned menuSelection;
@@ -93,7 +93,7 @@ namespace UI
 		} while (menuSelection >= roleLegalValues.size());
 
 		std::string selectedCommand = commands[menuSelection];
-		_logger << "Selected command \"" + selectedCommand + "\" chosen";*/
+		//_logger << "Selected command \"" + selectedCommand + "\" chosen";
 	}
 
 }
