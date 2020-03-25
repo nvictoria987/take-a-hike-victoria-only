@@ -94,6 +94,8 @@ namespace UI
 
 		std::string selectedCommand = commands[menuSelection];
 		//_logger << "Selected command \"" + selectedCommand + "\" chosen";
+		std::cout<< "Selected command \"" + selectedCommand + "\" chosen";
+
 	}
 
 }
