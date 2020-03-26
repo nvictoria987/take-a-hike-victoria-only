@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "createSession.hpp"
-
+#include "MaintainTrailHandler.hpp"
 
 namespace TrailManagement
 {
@@ -16,7 +16,7 @@ namespace TrailManagement
 
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
-
+		void getCommandfunction(std::string & command);
 
 		// Destructor
 		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
@@ -37,6 +37,10 @@ namespace TrailManagement
 	inline std::vector<std::string> TrailUserSession::getCommands()
 	{
 		return { "filter trail", "look up trail","working" };
+	}
+	inline void TrailUserSession::getCommandfunction(std::string & command)
+	{
+
 	}
 
 } // namespace Domain::Library

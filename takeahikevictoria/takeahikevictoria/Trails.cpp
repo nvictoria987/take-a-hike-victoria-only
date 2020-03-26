@@ -31,6 +31,7 @@ namespace TrailManagement
 			{
 				std::cout <<i<<" "<< storedtrails[i].trailname << " " << storedtrails[i].difficulty << " " << storedtrails[i].distance << " " << storedtrails[i].steepness << " " << storedtrails[i].info <<"\n";
 			}
+			return storedtrails[100];
 		}
 		else
 			throw Trails::NoSuchUser("did not open");

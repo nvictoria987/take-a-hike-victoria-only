@@ -96,8 +96,10 @@ namespace UI
 		//_logger << "Selected command \"" + selectedCommand + "\" chosen";
 		std::cout<< "Selected command \"" + selectedCommand + "\" chosen \n";
 
+		//TrailManagement::Trailinfo test = _TrailHandler->searchtrailDB();
+		sessionControl->getCommandfunction(selectedCommand);
 		
-		TrailManagement::Trailinfo test = _TrailHandler->searchtrailDB();
+		
 		
 		system("pause");
 	}

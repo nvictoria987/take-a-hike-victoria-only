@@ -120,6 +120,7 @@
     <ClCompile Include="firstDB.cpp" />
     <ClCompile Include="firstUI.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TrailAdminSession.cpp" />
     <ClCompile Include="Trails.cpp" />
     <ClCompile Include="useraccount.cpp" />
   </ItemGroup>
