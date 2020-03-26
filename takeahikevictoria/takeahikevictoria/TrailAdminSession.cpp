@@ -111,7 +111,7 @@ namespace TrailManagement
 	{
 		std::fstream datafile;
 		datafile.open("trailinfotext.txt");
-		int count = 0, choice, newList = 0;
+		int count = 0, choice;
 		struct Trailinfo storedtrails[100];
 
 		if (datafile.is_open())
