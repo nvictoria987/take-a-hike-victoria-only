@@ -69,7 +69,7 @@ namespace UI
 			if (_accounts->isAuthenticated({ userName, passPhrase, {selectedRole} }))
 			{
 				//_logger << "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"";
-				std::cout<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"";
+				std::cout<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"" << std::endl;
 				break;
 			}
 
