@@ -8,6 +8,7 @@ namespace TrailManagement
 	struct Trailinfo
 	{
 		std::string             trailname;
+		std::string		category;
 		std::string             difficulty;
 		std::string             distance;
 		std::string           	steepness;
