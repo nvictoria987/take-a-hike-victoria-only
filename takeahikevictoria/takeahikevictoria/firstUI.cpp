@@ -60,7 +60,7 @@ namespace UI
 				for (unsigned i = 0; i != roleLegalValues.size(); ++i)   std::cout << std::setw(2) << i << " - " << roleLegalValues[i] << '\n';
 				std::cout << "  role (0-" << roleLegalValues.size() - 1 << "): ";
 				std::cin >> menuSelection;
-			} while (menuSelection >= roleLegalValues.size());
+			} while (menuSelection >= roleLegalValues.size() + 1);
 
 			selectedRole = roleLegalValues[menuSelection];
 
@@ -69,7 +69,7 @@ namespace UI
 			if (_accounts->isAuthenticated({ userName, passPhrase, {selectedRole} }))
 			{
 				//_logger << "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"";
-				std::cout<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"";
+				std::cout<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"" << std::endl;
 				break;
 			}
 

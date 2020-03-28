@@ -1,4 +1,14 @@
-trail1 meduimum 2 low this is my first test
-trail2 hard 6.67 high kjdbbbf jfnkj du
-trail3 low .6 meduimum jk
-
+TRAIL1
+medium 100 low thisisMYfirsttest
+TEST
+easy 10 low TEST
+TEST
+easy 10 low TEST
+PINKY
+PINKY PINKY PINKY PINKY
+TEST
+TEST TEST TEST TEST
+PINKY
+PNKY PINKY low low
+DONE WITH IT
+high 100 high DONEZO
