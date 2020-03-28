@@ -17,6 +17,11 @@ namespace TrailManagement
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
 		void getCommandfunction(std::string & command);
+		void selectTrail();
+		Trailinfo selectCate(Trailinfo);
+		Trailinfo selectAttr(Trailinfo);
+		Trailinfo trailChoice(Trailinfo);
+		void printTrail(std::vector<Trailinfo>);
 
 		// Destructor
 		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
@@ -33,14 +38,13 @@ namespace TrailManagement
 	inline TrailUserSession::~TrailUserSession() noexcept
 	{}
 
-
+	/*
 	inline std::vector<std::string> TrailUserSession::getCommands()
 	{
 		return { "filter trail", "look up trail","working" };
 	}
 	inline void TrailUserSession::getCommandfunction(std::string & command)
 	{
-
 	}
-
+	*/
 } // namespace Domain::Library

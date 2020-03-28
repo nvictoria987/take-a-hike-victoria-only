@@ -122,6 +122,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TrailAdminSession.cpp" />
     <ClCompile Include="Trails.cpp" />
+    <ClCompile Include="TrailUserSession.cpp" />
     <ClCompile Include="useraccount.cpp" />
   </ItemGroup>
   <ItemGroup>
