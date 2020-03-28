@@ -130,8 +130,10 @@
     <ClInclude Include="createSession.hpp" />
     <ClInclude Include="firstDB.hpp" />
     <ClInclude Include="firstUI.hpp" />
+    <ClInclude Include="loggerHandler.hpp" />
     <ClInclude Include="MaintainTrailHandler.hpp" />
     <ClInclude Include="PersistenceHandler.hpp" />
+    <ClInclude Include="simpleLogger.hpp" />
     <ClInclude Include="TrailAdminSession.hpp" />
     <ClInclude Include="Trails.hpp" />
     <ClInclude Include="TrailUserSession.hpp" />

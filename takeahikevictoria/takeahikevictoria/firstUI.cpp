@@ -9,7 +9,8 @@
 #include "Trails.hpp"                                                   // Include for now - will replace next increment
 #include "createSession.hpp"
 
-//#include "TechnicalServices/Logging/LoggerHandler.hpp"
+#include "loggerHandler.hpp"
+#include "simpleLogger.hpp" 
 #include "firstDB.hpp"                                 // Include for now - will replace next increment
 //#include "TechnicalServices/Persistence/SingletonDB.hpp"                              // Include for now - will replace next increment
 
@@ -20,7 +21,7 @@ namespace UI
 	// Default constructor
 	SimpleUI::SimpleUI() : _accounts(std::make_unique<AccountManagement::UserAccounts>()),  //victoria- i cannot get this line to work // will replace these factory calls with abstract factory calls in the next increment
 	  _TrailHandler(std::make_unique<TrailManagement::Trails>()),   // will replace these factory calls with abstract factory calls in the next increment
-		//_loggerPtr(std::make_unique<TechnicalServices::Logging::SimpleLogger>()),   // will replace these factory calls with abstract factory calls in the next increment
+	  _loggerPtr(std::make_unique<Logging::SimpleLogger>()),   // will replace these factory calls with abstract factory calls in the next increment
 	  _persistentData(Persistence::SimpleDB::instance()) {}    // will replace these factory calls with abstract factory calls in the next increment
 	
 
@@ -28,7 +29,7 @@ namespace UI
 	// Destructor
 	SimpleUI::~SimpleUI() noexcept
 	{
-	//	//_logger << "Simple UI shutdown successfully";
+		_logger << "Simple UI shutdown successfully";
 	}
 
 
@@ -69,12 +70,12 @@ namespace UI
 			if (_accounts->isAuthenticated({ userName, passPhrase, {selectedRole} }))
 			{
 				//_logger << "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"";
-				std::cout<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"" << std::endl;
+				_logger<< "Login Successful for \"" + userName + "\" as role \"" + selectedRole + "\"" ;
 				break;
 			}
 
-			std::cout << "** Login failed\n";
-			//_logger << "Login failure for \"" + userName + "\" as role \"" + selectedRole + "\"";
+			//std::cout << "** Login failed\n";
+			_logger << "Login failure for \"" + userName + "\" as role \"" + selectedRole + "\"";
 
 		} while (true);
 
@@ -93,8 +94,8 @@ namespace UI
 		} while (menuSelection >= roleLegalValues.size()+1);
 
 		std::string selectedCommand = commands[menuSelection];
-		//_logger << "Selected command \"" + selectedCommand + "\" chosen";
-		std::cout<< "Selected command \"" + selectedCommand + "\" chosen \n";
+		_logger << "Selected command \"" + selectedCommand + "\" chosen";
+		//std::cout<< "Selected command \"" + selectedCommand + "\" chosen \n";
 
 		//TrailManagement::Trailinfo test = _TrailHandler->searchtrailDB();
 		sessionControl->getCommandfunction(selectedCommand);

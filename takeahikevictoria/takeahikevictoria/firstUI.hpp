@@ -4,7 +4,7 @@
 
 #include "AccountManagementHandler.hpp"
 #include "MaintainTrailHandler.hpp"
-
+#include"loggerHandler.hpp"
 
 #include "PersistenceHandler.hpp"
 
@@ -40,11 +40,13 @@ namespace UI
 		// These smart pointers hold pointers to lower architectural layer's interfaces
 		std::unique_ptr<AccountManagement::AccountManagementHandler>  _accounts;
 		std::unique_ptr<TrailManagement::MaintainTrailHandler>        _TrailHandler;
-
-		
+		std::unique_ptr<Logging::LoggerHandler>            _loggerPtr;
 		Persistence::PersistenceHandler                  & _persistentData;
 
 
+		// convenience reference object enabling standard insertion syntax
+		// This line must be physically after the definition of _loggerPtr
+		Logging::LoggerHandler                            & _logger = *_loggerPtr;
 		
 	};
 } // namespace UI

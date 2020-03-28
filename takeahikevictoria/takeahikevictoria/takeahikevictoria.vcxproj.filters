@@ -74,6 +74,12 @@
     <ClInclude Include="Trails.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="loggerHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="simpleLogger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="trailinfotext.txt">
