@@ -90,7 +90,7 @@ namespace UI
 			for (unsigned i = 0; i != commands.size(); ++i)   std::cout << std::setw(2) << i << " - " << commands[i] << '\n';
 			std::cout << "  role (0-" << commands.size() - 1 << "): ";
 			std::cin >> menuSelection;
-		} while (menuSelection >= roleLegalValues.size());
+		} while (menuSelection >= roleLegalValues.size()+1);
 
 		std::string selectedCommand = commands[menuSelection];
 		//_logger << "Selected command \"" + selectedCommand + "\" chosen";

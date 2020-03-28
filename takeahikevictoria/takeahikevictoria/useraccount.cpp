@@ -1,5 +1,7 @@
 #include <algorithm>    // std::any_of()
 #include <memory>       // make_unique<>()
+#include<fstream>
+#include<iostream>
 
 #include "useraccounts.hpp"
 
@@ -50,5 +52,60 @@ namespace AccountManagement
 
 		return false;
 	}
+
+	//void UserAccounts::editPassword()
+	//{
+	//	_persistentData
+	//	std::string newpassword,oldpassword;
+	//	char roles;
+
+	//	std::fstream datafile;
+	//	datafile.open("useraccountinfo.txt");
+	//	int count = 0, choice;
+	//	struct UserCredentials storedUsers[100];
+	//	if (datafile.is_open())
+	//	{
+	//		//std::cout << "open\n";
+	//		while (!datafile.eof())
+	//		{
+	//			datafile >> storedUsers[count].userName >> storedUsers[count].passPhrase >> roles;
+	//			switch (roles)
+	//			{
+	//			case '0': storedUsers[count].roles = { "TrailAdmin" };
+	//					  break;
+	//			case '1': storedUsers[count].roles = { "TrailUser" };
+	//					  break;
+	//			case '2': storedUsers[count].roles = { "TrailAdmin", "TrailUser" };
+	//					  break;
+	//			default: throw Persistence::PersistenceHandler::NoSuchUser("user account error");
+	//				break;
+	//			}
+
+	//			++count;
+	//		}
+	//		for (int i = 0; i< count-1; i++)
+	//		{
+	//			if (credentials.userName == storedUsers[count].userName)
+	//			{
+	//				std::cout << "enter password: ";
+	//				std::cin >> oldpassword;
+	//				if (oldpassword == storedUsers[count].passPhrase)
+	//				{
+	//					std::cout << "enter new password: ";
+	//					std::cin >> newpassword;
+	//					storedUsers[count].passPhrase = newpassword;
+
+	//				}
+	//			}
+	//		}
+
+	//	}
+	//	else
+	//		throw Persistence::PersistenceHandler::NoSuchUser("did not open");
+
+	//	datafile.close();
+
+
+	//}
 
 } // namespace Domain::AccountManagement

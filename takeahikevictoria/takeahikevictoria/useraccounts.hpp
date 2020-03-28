@@ -19,6 +19,7 @@ namespace AccountManagement
 
 		// Operations
 		bool isAuthenticated(const UserCredentials & credentials) override;
+		//void editPassword(const UserCredentials & credentials);
 
 
 		// Destructor

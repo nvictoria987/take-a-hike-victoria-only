@@ -4,6 +4,7 @@
 
 #include "TrailAdminSession.hpp"
 #include"Trails.hpp"
+//#include "useraccounts.hpp"
 
 
 namespace TrailManagement
@@ -11,6 +12,7 @@ namespace TrailManagement
 	std::vector<std::string> TrailAdminSession::getCommands()
 	{
 		return { "add Trail", "delete Trail","edit Trail" };
+		//edit Password"
 	}
 	
 	void TrailAdminSession::getCommandfunction(std::string & command)
@@ -27,6 +29,10 @@ namespace TrailManagement
 		{
 			editTrail();
 		}
+		/*else if (command == "edit Password")
+		{
+			AccountManagement::UserAccounts::editPassword();
+		}*/
 		else
 			std::cout << "invalid choice \n";
 

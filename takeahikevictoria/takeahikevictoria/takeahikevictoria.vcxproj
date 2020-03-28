@@ -137,6 +137,10 @@
     <ClInclude Include="useraccounts.hpp" />
     <ClInclude Include="userinterfacehandler.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="trailinfotext.txt" />
+    <Text Include="useraccountinfo.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
