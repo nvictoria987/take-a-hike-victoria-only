@@ -79,8 +79,6 @@ namespace UI
 
 		} while (true);
 
-
-
 		// 4) Fetch functionality options for this role
 	    std::unique_ptr<TrailManagement::SessionHandler> sessionControl = TrailManagement::SessionHandler::createSession(selectedRole);
 

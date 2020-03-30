@@ -8,7 +8,6 @@
 #include "PersistenceHandler.hpp"
 
 
-
 namespace AccountManagement
 {
 	class UserAccounts : public AccountManagement::AccountManagementHandler
