@@ -1,50 +1,34 @@
 #pragma once
 
-#include <memory>
+#include <memory>    // std::unique_ptr
 #include <string>
-#include <vector>
 
-#include "createSession.hpp"
-#include "MaintainTrailHandler.hpp"
+#include "AccountManagementHandler.hpp"
 
-namespace TrailManagement
+#include "PersistenceHandler.hpp"
+
+
+namespace AccountManagement
 {
-	class TrailUserSession : public TrailManagement::SessionHandler
+	class UserAccounts : public AccountManagement::AccountManagementHandler
 	{
 	public:
-		using SessionHandler::SessionHandler;  // inherit constructors
+		using AccountManagementHandler::AccountManagementHandler;  // inherit constructors
+		UserAccounts();
 
 		// Operations
-		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
-		void getCommandfunction(std::string & command);
-		void selectTrail();
-		Trailinfo selectCate(Trailinfo);
-		Trailinfo selectAttr(Trailinfo);
-		Trailinfo trailChoice(Trailinfo);
-		void printTrail(std::vector<Trailinfo>);
-		void manageAccount();
+		bool isAuthenticated(const UserCredentials & credentials) override;
+		//void editPassword(const UserCredentials & credentials);
+
+
 		// Destructor
-		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
-		~TrailUserSession() noexcept override;
-	}; // class BorrowerSession
+		~UserAccounts() noexcept override;
 
 
-
-
-
-	/*****************************************************************************
-	** Inline implementations
-	******************************************************************************/
-	inline TrailUserSession::~TrailUserSession() noexcept
-	{}
-
-	/*
-	inline std::vector<std::string> TrailUserSession::getCommands()
-	{
-		return { "filter trail", "look up trail","working" };
-	}
-	inline void TrailUserSession::getCommandfunction(std::string & command)
-	{
-	}
-	*/
-} // namespace Domain::Library
+	private:
+		// These smart pointers hold pointers to lower architectural layer's interfaces
+		Persistence::PersistenceHandler &   _persistentData;
+		
+	
+	};
+} // namespace Domain::AccountManagement
