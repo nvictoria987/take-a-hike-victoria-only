@@ -22,7 +22,7 @@ namespace TrailManagement
 		Trailinfo selectAttr(Trailinfo);
 		Trailinfo trailChoice(Trailinfo);
 		void printTrail(std::vector<Trailinfo>);
-
+		void manageAccount();
 		// Destructor
 		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
 		~TrailUserSession() noexcept override;
