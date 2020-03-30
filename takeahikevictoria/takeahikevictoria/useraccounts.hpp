@@ -1,35 +1,50 @@
 #pragma once
 
-#include <memory>    // std::unique_ptr
+#include <memory>
 #include <string>
+#include <vector>
 
-#include "AccountManagementHandler.hpp"
+#include "createSession.hpp"
+#include "MaintainTrailHandler.hpp"
 
-#include "PersistenceHandler.hpp"
-
-
-
-namespace AccountManagement
+namespace TrailManagement
 {
-	class UserAccounts : public AccountManagement::AccountManagementHandler
+	class TrailUserSession : public TrailManagement::SessionHandler
 	{
 	public:
-		using AccountManagementHandler::AccountManagementHandler;  // inherit constructors
-		UserAccounts();
+		using SessionHandler::SessionHandler;  // inherit constructors
 
 		// Operations
-		bool isAuthenticated(const UserCredentials & credentials) override;
-		//void editPassword(const UserCredentials & credentials);
-
-
+		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
+		void getCommandfunction(std::string & command);
+		void selectTrail();
+		Trailinfo selectCate(Trailinfo);
+		Trailinfo selectAttr(Trailinfo);
+		Trailinfo trailChoice(Trailinfo);
+		void printTrail(std::vector<Trailinfo>);
+		void manageAccount();
 		// Destructor
-		~UserAccounts() noexcept override;
+		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
+		~TrailUserSession() noexcept override;
+	}; // class BorrowerSession
 
 
-	private:
-		// These smart pointers hold pointers to lower architectural layer's interfaces
-		Persistence::PersistenceHandler &   _persistentData;
-		
-	
-	};
-} // namespace Domain::AccountManagement
+
+
+
+	/*****************************************************************************
+	** Inline implementations
+	******************************************************************************/
+	inline TrailUserSession::~TrailUserSession() noexcept
+	{}
+
+	/*
+	inline std::vector<std::string> TrailUserSession::getCommands()
+	{
+		return { "filter trail", "look up trail","working" };
+	}
+	inline void TrailUserSession::getCommandfunction(std::string & command)
+	{
+	}
+	*/
+} // namespace Domain::Library
