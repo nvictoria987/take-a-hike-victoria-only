@@ -5,12 +5,20 @@
 
 #include "TrailUserSession.hpp"
 #include "Trails.hpp"
+#include "PersistenceHandler.hpp"
+
+struct TempCredentials
+{
+	std::string             userName;
+	std::string             passPhrase;
+	std::string				roles;
+};
 
 namespace TrailManagement
 {
 	std::vector<std::string> TrailUserSession::getCommands()
 	{
-		return { "select trail(s)" };
+		return { "select trail(s)", "manage account" };
 	}
 
 	void TrailUserSession::getCommandfunction(std::string & command)
@@ -18,6 +26,10 @@ namespace TrailManagement
 		if (command == "select trail(s)")
 		{
 			selectTrail();
+		}
+		else if (command == "manage account")
+		{
+			manageAccount();
 		}
 		else
 			std::cout << "invalid choice \n";
@@ -92,12 +104,11 @@ namespace TrailManagement
 			throw Trails::NoSuchUser("did not open");
 
 		datafile.close();
-
 		if (filterTrail.category == "!" && filterTrail.difficulty == "!" && filterTrail.distance == "!" && filterTrail.steepness == "!")
 		{
-			for (int i = 0; i < count; i++)
+			for (int i = 0; i < count-1; i++)
 			{
-				filteredtrails[i] = storedtrails[i];
+				filteredtrails[countFiltered++] = storedtrails[i];
 			}
 		}
 		else
@@ -203,13 +214,123 @@ namespace TrailManagement
 		}
 	}
 
+	void TrailUserSession::manageAccount()
+	{
+		std::string newpassword, oldpassword;
+		std::fstream datafile;
+		int count = 0, choice = 0;
+		struct TempCredentials storedUsers[100], temp;
+
+		datafile.open("loggeduser.txt");
+		if (datafile.is_open())
+		{
+			datafile >> temp.userName >> temp.passPhrase;
+		}
+		else
+			throw Persistence::PersistenceHandler::NoSuchUser("did not open");
+
+		datafile.close();
+
+		
+		datafile.open("useraccountinfo.txt");
+		if (datafile.is_open())
+		{
+			while (!datafile.eof())
+			{
+				datafile >> storedUsers[count].userName >> storedUsers[count].passPhrase >> storedUsers[count].roles;
+				/*
+				switch (roles)
+				{
+				case '0': storedUsers[count].roles = { "TrailAdmin" };
+						  break;
+				case '1': storedUsers[count].roles = { "TrailUser" };
+						  break;
+				case '2': storedUsers[count].roles = { "TrailAdmin", "TrailUser" };
+						  break;
+				default: throw Persistence::PersistenceHandler::NoSuchUser("user account error");
+					break;
+				}
+				*/
+				++count;
+			}
+
+			while (choice != 3)
+			{
+				std::cout << "1: Change Password\n2: Change Username\n3: Quit" << std::endl;
+				std::cout << "Enter choice: ";
+				std::cin >> choice;
+				std::cout << std::endl;
+
+				if (choice == 1)
+				{
+					for (int i = 0; i < count; i++)
+					{
+						if (temp.userName == storedUsers[i].userName)
+						{
+							std::cout << "enter password: ";
+							std::cin >> oldpassword;
+							if (oldpassword == storedUsers[i].passPhrase)
+							{
+								std::cout << "enter new password: ";
+								std::cin >> newpassword;
+								storedUsers[i].passPhrase = newpassword;
+							}
+						}
+					}
+				}
+				else if (choice == 2)
+				{
+					for (int i = 0; i < count; i++)
+					{
+						if (temp.userName == storedUsers[i].userName)
+						{
+							std::cout << "enter password: ";
+							std::cin >> oldpassword;
+							if (oldpassword == storedUsers[i].passPhrase)
+							{
+								std::cout << "enter new username: ";
+								std::cin >> newpassword;
+								storedUsers[i].userName = newpassword;
+
+							}
+						}
+					}
+				}
+				else if (choice == 3)
+				{
+					break;
+				}
+				else
+				{
+					std::cout << "Please enter a valid choice." << std::endl;
+				}
+			}
+		}
+		else
+			throw Persistence::PersistenceHandler::NoSuchUser("did not open");
+
+		datafile.close();
+
+		datafile.open("useraccountinfo.txt", std::ios::out | std::ios::trunc);
+		if (datafile.is_open())
+		{
+			for (int i = 0; i < count; i++)
+			{
+				datafile << storedUsers[i].userName << " " << storedUsers[i].passPhrase << " " << storedUsers[i].roles << std::endl;
+			}
+		}
+		else
+			throw Persistence::PersistenceHandler::NoSuchUser("did not open");
+
+		datafile.close();
+	}
+
 	void TrailUserSession::selectTrail()
 	{
 		std::fstream datafile;
-		int count = 0, choice = 0;
-		Trailinfo storedtrails[100], filterTrail;
+		int choice = 0;
+		Trailinfo filterTrail;
 		std::vector<Trailinfo> chosentrails;
-		std::string trailname, difficulty, distance, steepness, info;
 
 		filterTrail.category = "!";
 		filterTrail.difficulty = "!";
@@ -218,7 +339,7 @@ namespace TrailManagement
 
 		while (choice != 5)
 		{
-			std::cout << "1: Select category\n2: Select attribute(s)\n3: Choose trail from filtered list\n4: Print trail(s)\n5: Quit" << std::endl;
+			std::cout << "\n1: Select category\n2: Select attribute(s)\n3: Choose trail from filtered list\n4: Print chosen trail(s)\n5: Quit" << std::endl;
 			std::cout << "Enter choice: ";
 			std::cin >> choice;
 			std::cout << std::endl;
