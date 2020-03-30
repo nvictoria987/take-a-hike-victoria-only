@@ -12,7 +12,7 @@
 
 namespace TrailManagement
 {
-	Trailinfo Trails::displaytrailDB()
+	Trailinfo Trails::searchtrailDB()
 	{
 		std::fstream datafile;
 		datafile.open("trailinfotext.txt");
