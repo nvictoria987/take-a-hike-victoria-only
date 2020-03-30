@@ -10,13 +10,14 @@
 namespace Persistence
 {
   // Function argument type definitions
+  
   struct UserCredentials
   {
     std::string               userName;
     std::string               passPhrase;
     std::vector<std::string>  roles;
   };
-
+  
 
   // Persistence Package within the Technical Services Layer Abstract class
   class PersistenceHandler
