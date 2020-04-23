@@ -16,13 +16,16 @@ namespace TrailManagement
 
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
-		void getCommandfunction(std::string & command);
+		void getCommandfunction(std::string & command) override;
+		
+		//operations only accessible byt the Trail User
 		void selectTrail();
 		Trailinfo selectCate(Trailinfo);
 		Trailinfo selectAttr(Trailinfo);
 		Trailinfo trailChoice(Trailinfo);
 		void printTrail(std::vector<Trailinfo>);
 		void manageAccount();
+		
 		// Destructor
 		// Pure virtual destructor helps force the class to be abstract, but must still be implemented
 		~TrailUserSession() noexcept override;

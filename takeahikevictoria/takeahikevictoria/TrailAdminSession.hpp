@@ -17,15 +17,16 @@ namespace TrailManagement
 
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
-		void getCommandfunction(std::string & command);
+		void getCommandfunction(std::string & command) override;
+
+		//operations only accessible by the Trail Admin
 		void manageTrailDatabase();
 		void addTrail();
 		void editTrail();
 		void deleteTrail();
 		void printTrail();
 		void manageAccount();
-		//void editPassword();
-		//bool deleteTrail(Trailinfo db, std::string name);
+		
 
 
 		// Destructor
