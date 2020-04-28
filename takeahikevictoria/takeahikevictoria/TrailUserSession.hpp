@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <any>
 
 #include "createSession.hpp"
 #include "MaintainTrailHandler.hpp"
@@ -16,7 +17,7 @@ namespace TrailManagement
 
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
-		void getCommandfunction(std::string & command) override;
+		std::any getCommandfunction(std::string & command, const std::vector<std::string> & args) override;
 		
 		//operations only accessible byt the Trail User
 		void selectTrail();

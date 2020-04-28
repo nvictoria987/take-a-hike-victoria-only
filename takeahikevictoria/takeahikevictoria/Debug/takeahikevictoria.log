@@ -1,5 +1,2 @@
-﻿  TrailUserSession.cpp
-c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\trailusersession.cpp(211): warning C4018: '<': signed/unsigned mismatch
-  createSession.cpp
-  Generating Code...
+﻿  firstUI.cpp
   takeahikevictoria.vcxproj -> C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe

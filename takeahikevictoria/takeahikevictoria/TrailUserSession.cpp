@@ -2,6 +2,7 @@
 #include<iostream>
 #include <fstream>
 #include <vector>
+#include <any>
 
 #include "TrailUserSession.hpp"
 #include "Trails.hpp"
@@ -21,7 +22,7 @@ namespace TrailManagement
 		return { "select trail(s)", "manage account" };
 	}
 
-	void TrailUserSession::getCommandfunction(std::string & command)
+	std::any TrailUserSession::getCommandfunction(std::string & command, const std::vector<std::string> & args)
 	{
 		if (command == "select trail(s)")
 		{
@@ -32,7 +33,8 @@ namespace TrailManagement
 			manageAccount();
 		}
 		else
-			std::cout << "invalid choice \n";
+			return 0;
+			//std::cout << "invalid choice \n";
 	}
 
 	Trailinfo TrailUserSession::selectCate(Trailinfo filterTrail)

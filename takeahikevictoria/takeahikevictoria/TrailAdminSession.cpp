@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include <fstream>
+#include <any>
 
 #include "TrailAdminSession.hpp"
 #include "Trails.hpp"
@@ -18,71 +19,93 @@ namespace TrailManagement
 {
 	std::vector<std::string> TrailAdminSession::getCommands()
 	{
-		return { "manage trail database", "manage account" };
+		return { "Add Trail","Delete Trail" ,"Edit Trail", "Print Database", "Change Password", "Change Username" };
 		//edit Password"
 	}
 	
-	void TrailAdminSession::getCommandfunction(std::string & command)
+	std::any TrailAdminSession::getCommandfunction(std::string & command, const std::vector<std::string> & args)
 	{
-		if (command == "manage trail database")
+
+		if (command == "Add Trail ")
 		{
-			manageTrailDatabase();
+			addTrail(args);
 		}
-		else if (command == "manage account")
+		else if (command == "Delete Trail")
 		{
-			manageAccount();
+			deleteTrail(args);
+		}
+		else if (command == "Edit Trail")
+		{
+			editTrail(args);
+		}
+		else if (command == "Print Database")
+		{
+			printTrail(args);
+		}
+		else if (command == "Change Password")
+		{
+			
+		}
+		else if (command == "Change Username")
+		{
+
 		}
 		else
-			std::cout << "invalid choice \n";
-
-
+			return 0;
+			//std::cout << "invalid choice \n"; 
 
 	}
 
-	void TrailAdminSession::addTrail()// my problem
+	void TrailAdminSession::addTrail(const std::vector<std::string> & args)
 	{
 		//Trailinfo db;
 		
 		std::fstream datafile;
 		std::string trailname, category, difficulty, distance, steepness, info;
+		trailname = args[0];
+		category = args[1];
+		difficulty = args[2];
+		distance = args[3];
+		steepness = args[4];
+		info = args[5];
 
 		datafile.open("trailinfotext.txt", std::ios::app);
 		if (datafile.is_open())
 		{
-			std::cout << "enter trail name: ";
-			std::cin.ignore();
-			std::getline(std::cin, trailname);
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].trailname;
+			//std::cout << "enter trail name: ";
+			//std::cin.ignore();
+			//std::getline(std::cin, trailname);
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].trailname;
 
-			std::cout << "enter category {walking, biking, pet}: ";
-			std::cin >> category;
-			std::cin.ignore();
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].category;
+			//std::cout << "enter category {walking, biking, pet}: ";
+			//std::cin >> category;
+			//std::cin.ignore();
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].category;
 
-			std::cout << "enter difficullty {easy, medium, high}: ";
-			std::cin >> difficulty;
-			std::cin.ignore();
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].difficulty;
+			//std::cout << "enter difficullty {easy, medium, high}: ";
+			//std::cin >> difficulty;
+			//std::cin.ignore();
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].difficulty;
 
-			std::cout << "enter distance: ";
-			std::cin >> distance;
-			std::cin.ignore();
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].distance;
+			//std::cout << "enter distance: ";
+			//std::cin >> distance;
+			//std::cin.ignore();
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].distance;
 
-			std::cout << "enter steepness level {low, medium, high}: ";
-			std::cin >> steepness;
-			std::cin.ignore();
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].steepness;
+			//std::cout << "enter steepness level {low, medium, high}: ";
+			//std::cin >> steepness;
+			//std::cin.ignore();
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].steepness;
 
-			std::cout << "enter any info about the trail: ";
-			std::getline(std::cin, info);
-			std::cout << std::endl;
-			//tafile >> storedtrails[count].info;
+			//std::cout << "enter any info about the trail: ";
+			//std::getline(std::cin, info);
+			//std::cout << std::endl;
+			////tafile >> storedtrails[count].info;
 
 			datafile << trailname << std::endl << category << " " << difficulty << " " << distance << " " << steepness << " " << info << std::endl;
 		}
@@ -93,7 +116,7 @@ namespace TrailManagement
 
 	}
 
-	void TrailAdminSession::deleteTrail()
+	void TrailAdminSession::deleteTrail(const std::vector<std::string> & args)
 	{
 		std::fstream datafile;
 		datafile.open("trailinfotext.txt");
@@ -144,7 +167,7 @@ namespace TrailManagement
 
 	}
 
-	void TrailAdminSession::editTrail()
+	void TrailAdminSession::editTrail(const std::vector<std::string> & args)
 	{
 
 		std::fstream datafile;
@@ -236,7 +259,7 @@ namespace TrailManagement
 
 	}
 
-	void TrailAdminSession::printTrail()
+	void TrailAdminSession::printTrail(const std::vector<std::string> & args)
 	{
 		int count = 0;
 		struct Trailinfo storedtrails[100];
@@ -375,33 +398,5 @@ namespace TrailManagement
 		datafile.close();
 	}
 
-	void TrailAdminSession::manageTrailDatabase()
-	{
-		std::fstream datafile;
-		int choice = 0;
-
-		while (choice != 5)
-		{
-			std::cout << "\n1: Add Trail\n2: Delete Trail\n3: Edit Trail\n4: Print Database\n5: Quit" << std::endl;
-			std::cout << "Enter choice: ";
-			std::cin >> choice;
-			std::cout << std::endl;
-
-			switch (choice)
-			{
-			case 1: addTrail();
-				break;
-			case 2: deleteTrail();
-				break;
-			case 3: editTrail();
-				break;
-			case 4: printTrail();
-				break;
-			case 5:
-				break;
-			default: std::cout << "Please enter a value 1-5" << std::endl;
-				break;
-			}
-		}
-	}
+	
 }

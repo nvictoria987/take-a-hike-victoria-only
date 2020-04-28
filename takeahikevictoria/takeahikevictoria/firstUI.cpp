@@ -81,24 +81,128 @@ namespace UI
 
 		// 4) Fetch functionality options for this role
 	    std::unique_ptr<TrailManagement::SessionHandler> sessionControl = TrailManagement::SessionHandler::createSession(selectedRole);
-
-		std::vector<std::string> commands = sessionControl->getCommands();
-		unsigned menuSelection;
 		do
-		{
-			for (unsigned i = 0; i != commands.size(); ++i)   std::cout << std::setw(2) << i << " - " << commands[i] << '\n';
-			std::cout << "  role (0-" << commands.size() - 1 << "): ";
-			std::cin >> menuSelection;
-		} while (menuSelection >= roleLegalValues.size()+1);
+		{ 
+			std::vector<std::string> commands = sessionControl->getCommands();
+			std::string selectedCommand;
+			unsigned menuSelection;
+			
+			do
+			{
+				for (unsigned i = 0; i != commands.size(); ++i) std::cout << std::setw(2) << i << " - " << commands[i] << '\n';
+				//std::cout << std::setw(2) << commands.size() << " - " << "Quit\n";
 
-		std::string selectedCommand = commands[menuSelection];
-		_logger << "Selected command \"" + selectedCommand + "\" chosen";
-		//std::cout<< "Selected command \"" + selectedCommand + "\" chosen \n";
+				std::cout << "  action (0-" << commands.size() << "): ";
+				std::cin >> menuSelection;
+			} while (menuSelection > commands.size());
 
-		//TrailManagement::Trailinfo test = _TrailHandler->searchtrailDB();
-		sessionControl->getCommandfunction(selectedCommand);
+			if (menuSelection == commands.size()) break;
+
+			selectedCommand = commands[menuSelection];
+			_logger << "Selected command \"" + selectedCommand + "\" chosen";
 		
+			if (selectedCommand== "Add Trail")
+			{
+				std::vector<std::string> parameters(6);
+
+				std::cout << " enter trail name :   ";  std::cin >> std::ws;  std::getline(std::cin, parameters[0]);
+				std::cout << " enter category {walking, biking, pet}:  ";  std::cin >> std::ws;  std::getline(std::cin, parameters[1]);
+				std::cout << " enter difficullty {easy, medium, high}:  ";  std::cin >> std::ws;  std::getline(std::cin, parameters[2]);
+				std::cout << " enter distance:  ";  std::cin >> std::ws;  std::getline(std::cin, parameters[3]);
+				std::cout << " enter steepness level {low, medium, high}:   ";  std::cin >> std::ws;  std::getline(std::cin, parameters[4]);
+				std::cout << " enter any info about the trail:   ";  std::cin >> std::ws;  std::getline(std::cin, parameters[5]);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "Print Database")
+			{
+				sessionControl->getCommandfunction(selectedCommand, {});
+			}
+			else if (selectedCommand == "Edit Trail")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "Delete Trail")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "Change Password")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "Change Username")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+				std::vector<std::string> parameters(6);
+
+				sessionControl->getCommandfunction(selectedCommand, parameters);
+			}
+			else if (selectedCommand == "")
+			{
+
+			}
+			else if (selectedCommand == "")
+			{
+
+			}
+			else if (selectedCommand == "")
+			{
+
+			}
+			else if (selectedCommand == "")
+			{
+
+			}
+			else if (selectedCommand == "quit")
+			{
+
+			}
+			//then we would implement the other functions
+			else sessionControl->getCommandfunction(selectedCommand, {});
+
 		
+		} while (true);
 		
 		system("pause");
 	}
