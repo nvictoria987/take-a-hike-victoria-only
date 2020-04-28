@@ -26,7 +26,7 @@ namespace TrailManagement
 	std::any TrailAdminSession::getCommandfunction(std::string & command, const std::vector<std::string> & args)
 	{
 
-		if (command == "Add Trail ")
+		if (command == "Add Trail")
 		{
 			addTrail(args);
 		}
