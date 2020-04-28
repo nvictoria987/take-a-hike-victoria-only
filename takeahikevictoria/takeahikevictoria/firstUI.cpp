@@ -57,7 +57,7 @@ namespace UI
 			unsigned menuSelection;
 			do
 			{
-				for (unsigned i = 0; i != roleLegalValues.size(); ++i)   std::cout << std::setw(2) << i << " - " << roleLegalValues[i] << '\n';
+				for (unsigned i = 0; i != roleLegalValues.size(); i++)   std::cout << std::setw(2) << i << " - " << roleLegalValues[i] << '\n';
 				std::cout << "  role (0-" << roleLegalValues.size() - 1 << "): ";
 				std::cin >> menuSelection;
 			} while (menuSelection >= roleLegalValues.size() + 1);
@@ -141,29 +141,72 @@ namespace UI
 
 				sessionControl->getCommandfunction(selectedCommand, parameters);
 			}
-			else if (selectedCommand == "")
+			else if (selectedCommand == "Select Category")
 			{
-				std::vector<std::string> parameters(6);
+				std::vector<std::string> parameters(1);
+
+				int choice = 0;
+
+				std::cout << "1: walking\n2: biking\n3: pet\n4: unfiltered" << std::endl;
+				std::cout << "Enter choice: ";
+				std::cin >> choice;
+				std::cout << std::endl;
+
+				switch (choice)
+				{
+				case 1: parameters[0] = "walking";
+					break;
+				case 2: parameters[0] = "biking";
+					break;
+				case 3: parameters[0] = "pet";
+					break;
+				case 4: parameters[0] = "!";
+					break;
+				default:
+					break;
+				}
 
 				sessionControl->getCommandfunction(selectedCommand, parameters);
 			}
-			else if (selectedCommand == "")
+			else if (selectedCommand == "Select Attribute(s)")
 			{
-				std::vector<std::string> parameters(6);
+				std::vector<std::string> parameters(3);
+
+				std::cout << "Please enter ! in each attribute you want unfiltered." << std::endl;
+
+				std::cout << "enter difficullty {easy, medium, high}: ";
+				std::cin >> parameters[0];
+				std::cin.ignore();
+				std::cout << std::endl;
+
+				std::cout << "enter distance: ";
+				std::cin >> parameters[1];
+				std::cin.ignore();
+				std::cout << std::endl;
+
+				std::cout << "enter steepness level {low, medium, high}: ";
+				std::cin >> parameters[2];
+				std::cin.ignore();
+				std::cout << std::endl;
 
 				sessionControl->getCommandfunction(selectedCommand, parameters);
 			}
-			else if (selectedCommand == "")
+			else if (selectedCommand == "Choose Trail")
 			{
-				std::vector<std::string> parameters(6);
+				std::vector<std::string> parameters(1);
+				std::string init = "Filtered";
+
+				sessionControl->getCommandfunction(init, parameters);
+
+				std::cout << "Please choose a trail: ";
+				std::cin >> parameters[0];
+				std::cout << std::endl;
 
 				sessionControl->getCommandfunction(selectedCommand, parameters);
 			}
-			else if (selectedCommand == "")
+			else if (selectedCommand == "Print Chosen Trails")
 			{
-				std::vector<std::string> parameters(6);
-
-				sessionControl->getCommandfunction(selectedCommand, parameters);
+				sessionControl->getCommandfunction(selectedCommand, {});
 			}
 			else if (selectedCommand == "")
 			{

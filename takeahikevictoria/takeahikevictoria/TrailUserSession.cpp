@@ -17,21 +17,58 @@ struct TempCredentials
 
 namespace TrailManagement
 {
+	Trailinfo filter, filteredtrails[100];
+	std::vector<Trailinfo> chosentrails;
+	bool init = true;
+	int countFiltered = 0;
+
 	std::vector<std::string> TrailUserSession::getCommands()
 	{
-		return { "select trail(s)", "manage account" };
+		if (init)
+		{
+			filter.category = "!";
+			filter.difficulty = "!";
+			filter.distance = "!";
+			filter.steepness = "!";
+			init = false;
+		}
+
+		return { "Select Category","Select Attribute(s)" ,"Choose Trail", "Print Chosen Trails", "Change Password", "Change Username","Quit" };
 	}
 
 	std::any TrailUserSession::getCommandfunction(std::string & command, const std::vector<std::string> & args)
 	{
-		if (command == "select trail(s)")
+		if (command == "Filtered")
 		{
-			selectTrail();
+			printFiltered(filter);
 		}
-		else if (command == "manage account")
+
+		if (command == "Select Category")
 		{
-			manageAccount();
+			selectCate(args);
 		}
+		else if (command == "Select Attribute(s)")
+		{
+			selectAttr(args);
+		}
+		else if (command == "Choose Trail")
+		{
+			int choice = stoi(args[0]);
+			chosentrails.push_back(trailChoice(choice));
+		}
+		else if (command == "Print Chosen Trails")
+		{
+			printTrail(chosentrails);
+		}
+		else if (command == "Change Password")
+		{
+
+		}
+		else if (command == "Change Username")
+		{
+
+		}
+
 		else
 			return 0;
 			//std::cout << "invalid choice \n";
@@ -42,59 +79,11 @@ namespace TrailManagement
 		return false;
 	}
 
-	Trailinfo TrailUserSession::selectCate(Trailinfo filterTrail)
-	{
-		int choice = 0;
-
-		std::cout << "1: walking\n2: biking\n3: pet\n4: unfiltered" << std::endl;
-		std::cout << "Enter choice: ";
-		std::cin >> choice;
-		std::cout << std::endl;
-
-		switch (choice)
-		{
-		case 1: filterTrail.category = "walking";
-			break;
-		case 2: filterTrail.category = "biking";
-			break;
-		case 3: filterTrail.category = "pet";
-			break;
-		case 4: filterTrail.category = "!";
-			break;
-		default:
-			break;
-		}
-
-		return filterTrail;
-	}
-
-	Trailinfo TrailUserSession::selectAttr(Trailinfo filterTrail)
-	{
-		std::cout << "Please enter ! in each attribute you want unfiltered." << std::endl;
-
-		std::cout << "enter difficullty {easy, medium, high}: ";
-		std::cin >> filterTrail.difficulty;
-		std::cin.ignore();
-		std::cout << std::endl;
-
-		std::cout << "enter distance: ";
-		std::cin >> filterTrail.distance;
-		std::cin.ignore();
-		std::cout << std::endl;
-
-		std::cout << "enter steepness level {low, medium, high}: ";
-		std::cin >> filterTrail.steepness;
-		std::cin.ignore();
-		std::cout << std::endl;
-
-		return filterTrail;
-	}
-
-	Trailinfo TrailUserSession::trailChoice(Trailinfo filterTrail)
-	{
+	void TrailUserSession::printFiltered(Trailinfo filterTrail) {
 		std::fstream datafile;
-		Trailinfo storedtrails[100], filteredtrails[100];
-		int count = 0, countFiltered = 0, repeatCheck = 0, choice = 0;
+		Trailinfo storedtrails[100];
+		int count = 0, repeatCheck = 0;
+		countFiltered = 0;
 
 		datafile.open("trailinfotext.txt");
 		if (datafile.is_open())
@@ -113,7 +102,7 @@ namespace TrailManagement
 		datafile.close();
 		if (filterTrail.category == "!" && filterTrail.difficulty == "!" && filterTrail.distance == "!" && filterTrail.steepness == "!")
 		{
-			for (int i = 0; i < count-1; i++)
+			for (int i = 0; i < count - 1; i++)
 			{
 				filteredtrails[countFiltered++] = storedtrails[i];
 			}
@@ -205,11 +194,22 @@ namespace TrailManagement
 		{
 			std::cout << i << " " << filteredtrails[i].trailname << " " << filteredtrails[i].category << " " << filteredtrails[i].difficulty << " " << filteredtrails[i].distance << " " << filteredtrails[i].steepness << " " << filteredtrails[i].info << std::endl;
 		}
+	}
 
-		std::cout << "Please choose a trail: ";
-		std::cin >> choice;
-		std::cout << std::endl;
+	void TrailUserSession::selectCate(const std::vector<std::string> & args)
+	{
+		filter.category = args[0];
+	}
 
+	void TrailUserSession::selectAttr(const std::vector<std::string> & args)
+	{
+		filter.difficulty = args[0];
+		filter.distance = args[1];
+		filter.steepness = args[2];
+	}
+
+	Trailinfo TrailUserSession::trailChoice(int choice)
+	{
 		return filteredtrails[choice];
 	}
 
@@ -334,6 +334,7 @@ namespace TrailManagement
 
 	void TrailUserSession::selectTrail()
 	{
+		/*
 		std::fstream datafile;
 		int choice = 0;
 		Trailinfo filterTrail;
@@ -367,5 +368,7 @@ namespace TrailManagement
 				break;
 			}
 		}
+		*/
 	}
+	
 }

@@ -22,9 +22,10 @@ namespace TrailManagement
 		
 		//operations only accessible byt the Trail User
 		void selectTrail();
-		Trailinfo selectCate(Trailinfo);
-		Trailinfo selectAttr(Trailinfo);
-		Trailinfo trailChoice(Trailinfo);
+		void selectCate(const std::vector<std::string> & args);
+		void selectAttr(const std::vector<std::string> & args);
+		Trailinfo trailChoice(int);
+		void printFiltered(Trailinfo);
 		void printTrail(std::vector<Trailinfo>);
 		void manageAccount();
 		
