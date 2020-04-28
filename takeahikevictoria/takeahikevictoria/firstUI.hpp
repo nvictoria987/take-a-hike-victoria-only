@@ -30,7 +30,7 @@ namespace UI
 
 		// Operations
 		void launch() override;
-
+		bool Signoff() ;
 
 		// Destructor
 		~SimpleUI() noexcept override;

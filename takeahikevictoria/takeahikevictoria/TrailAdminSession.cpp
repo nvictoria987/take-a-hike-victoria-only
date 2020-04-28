@@ -19,7 +19,7 @@ namespace TrailManagement
 {
 	std::vector<std::string> TrailAdminSession::getCommands()
 	{
-		return { "Add Trail","Delete Trail" ,"Edit Trail", "Print Database", "Change Password", "Change Username" };
+		return { "Add Trail","Delete Trail" ,"Edit Trail", "Print Database", "Change Password", "Change Username","Quit" };
 		//edit Password"
 	}
 	
@@ -50,10 +50,15 @@ namespace TrailManagement
 		{
 
 		}
+		
 		else
 			return 0;
 			//std::cout << "invalid choice \n"; 
 
+	}
+	bool TrailAdminSession::Signoff()
+	{
+		return false;
 	}
 
 	void TrailAdminSession::addTrail(const std::vector<std::string> & args)
@@ -72,40 +77,6 @@ namespace TrailManagement
 		datafile.open("trailinfotext.txt", std::ios::app);
 		if (datafile.is_open())
 		{
-			//std::cout << "enter trail name: ";
-			//std::cin.ignore();
-			//std::getline(std::cin, trailname);
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].trailname;
-
-			//std::cout << "enter category {walking, biking, pet}: ";
-			//std::cin >> category;
-			//std::cin.ignore();
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].category;
-
-			//std::cout << "enter difficullty {easy, medium, high}: ";
-			//std::cin >> difficulty;
-			//std::cin.ignore();
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].difficulty;
-
-			//std::cout << "enter distance: ";
-			//std::cin >> distance;
-			//std::cin.ignore();
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].distance;
-
-			//std::cout << "enter steepness level {low, medium, high}: ";
-			//std::cin >> steepness;
-			//std::cin.ignore();
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].steepness;
-
-			//std::cout << "enter any info about the trail: ";
-			//std::getline(std::cin, info);
-			//std::cout << std::endl;
-			////tafile >> storedtrails[count].info;
 
 			datafile << trailname << std::endl << category << " " << difficulty << " " << distance << " " << steepness << " " << info << std::endl;
 		}

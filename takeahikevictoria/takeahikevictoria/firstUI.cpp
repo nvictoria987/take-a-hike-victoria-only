@@ -6,13 +6,12 @@
 #include <iomanip>
 
 #include "useraccounts.hpp"                                  // Include for now - will replace next increment
-#include "Trails.hpp"                                                   // Include for now - will replace next increment
+
 #include "createSession.hpp"
 
 #include "loggerHandler.hpp"
 #include "simpleLogger.hpp" 
 #include "firstDB.hpp"                                 // Include for now - will replace next increment
-//#include "TechnicalServices/Persistence/SingletonDB.hpp"                              // Include for now - will replace next increment
 
 #include "firstUI.hpp"
 
@@ -20,7 +19,6 @@ namespace UI
 {
 	// Default constructor
 	SimpleUI::SimpleUI() : _accounts(std::make_unique<AccountManagement::UserAccounts>()),  //victoria- i cannot get this line to work // will replace these factory calls with abstract factory calls in the next increment
-	  _TrailHandler(std::make_unique<TrailManagement::Trails>()),   // will replace these factory calls with abstract factory calls in the next increment
 	  _loggerPtr(std::make_unique<Logging::SimpleLogger>()),   // will replace these factory calls with abstract factory calls in the next increment
 	  _persistentData(Persistence::SimpleDB::instance()) {}    // will replace these factory calls with abstract factory calls in the next increment
 	
@@ -32,6 +30,7 @@ namespace UI
 		_logger << "Simple UI shutdown successfully";
 	}
 
+	
 
 
 	// Operations
@@ -96,7 +95,7 @@ namespace UI
 				std::cin >> menuSelection;
 			} while (menuSelection > commands.size());
 
-			if (menuSelection == commands.size()) break;
+			//if (menuSelection == commands.size()) break;
 
 			selectedCommand = commands[menuSelection];
 			_logger << "Selected command \"" + selectedCommand + "\" chosen";
@@ -194,12 +193,16 @@ namespace UI
 			{
 
 			}
-			else if (selectedCommand == "quit")
+			else if (selectedCommand == "Quit")
 			{
-
+				sessionControl->Signoff();
+				break;
 			}
 			//then we would implement the other functions
-			else sessionControl->getCommandfunction(selectedCommand, {});
+			else 
+			{
+				_logger << "Invalid options";
+			}
 
 		
 		} while (true);

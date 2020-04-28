@@ -19,7 +19,7 @@ namespace TrailManagement
 		// Operations
 		std::vector<std::string> getCommands() override;  // retrieves the list of actions (commands)
 		std::any getCommandfunction(std::string & command, const std::vector<std::string> & args) override;
-
+		bool Signoff()override;
 		//operations only accessible by the Trail Admin
 		void manageTrailDatabase();
 		void addTrail(const std::vector<std::string> & args);
@@ -27,6 +27,7 @@ namespace TrailManagement
 		void deleteTrail(const std::vector<std::string> & args);
 		void printTrail(const std::vector<std::string> & args);
 		void manageAccount();
+		
 		
 
 

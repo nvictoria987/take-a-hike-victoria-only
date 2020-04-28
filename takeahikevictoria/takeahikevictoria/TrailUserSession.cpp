@@ -36,6 +36,11 @@ namespace TrailManagement
 			return 0;
 			//std::cout << "invalid choice \n";
 	}
+	
+	bool TrailUserSession::Signoff()
+	{
+		return false;
+	}
 
 	Trailinfo TrailUserSession::selectCate(Trailinfo filterTrail)
 	{

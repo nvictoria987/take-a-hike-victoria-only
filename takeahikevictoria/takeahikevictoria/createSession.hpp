@@ -21,6 +21,7 @@ namespace TrailManagement
 		// Operations
 		virtual std::vector<std::string> getCommands() = 0;  // retrieves the list of actions (commands)
 		virtual std::any getCommandfunction(std::string & command, const std::vector<std::string> & args) = 0;
+		virtual bool Signoff() =0;
 
 		// Object Factory returning a specialized object specific to the specified role
 		static std::unique_ptr<SessionHandler> createSession(const std::string & role);

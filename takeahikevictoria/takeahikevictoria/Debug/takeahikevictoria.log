@@ -1,2 +1,9 @@
-﻿  firstUI.cpp
+﻿  TrailAdminSession.cpp
+  TrailUserSession.cpp
+c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\trailusersession.cpp(218): warning C4018: '<': signed/unsigned mismatch
+  createSession.cpp
+  firstUI.cpp
+  Generating Code...
+c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\trailusersession.cpp(38): warning C4715: 'TrailManagement::TrailUserSession::getCommandfunction': not all control paths return a value
+c:\users\victoria\desktop\take-a-hike-victoria-only\takeahikevictoria\takeahikevictoria\trailadminsession.cpp(58): warning C4715: 'TrailManagement::TrailAdminSession::getCommandfunction': not all control paths return a value
   takeahikevictoria.vcxproj -> C:\Users\Victoria\Desktop\take-a-hike-victoria-only\takeahikevictoria\Debug\takeahikevictoria.exe

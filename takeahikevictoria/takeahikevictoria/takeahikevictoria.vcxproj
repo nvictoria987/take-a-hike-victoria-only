@@ -121,7 +121,6 @@
     <ClCompile Include="firstUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TrailAdminSession.cpp" />
-    <ClCompile Include="Trails.cpp" />
     <ClCompile Include="TrailUserSession.cpp" />
     <ClCompile Include="useraccount.cpp" />
   </ItemGroup>
@@ -135,7 +134,6 @@
     <ClInclude Include="PersistenceHandler.hpp" />
     <ClInclude Include="simpleLogger.hpp" />
     <ClInclude Include="TrailAdminSession.hpp" />
-    <ClInclude Include="Trails.hpp" />
     <ClInclude Include="TrailUserSession.hpp" />
     <ClInclude Include="useraccounts.hpp" />
     <ClInclude Include="userinterfacehandler.hpp" />

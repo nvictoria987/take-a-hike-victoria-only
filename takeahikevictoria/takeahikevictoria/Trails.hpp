@@ -11,7 +11,7 @@ namespace TrailManagement
 		using MaintainTrailHandler::MaintainTrailHandler;  // inherit constructors
 
 		// Operations
-		virtual Trailinfo displaytrailDB() override;
+		//virtual Trailinfo displaytrailDB() override;
 
 		~Trails() noexcept override;
 	}; // class Trails

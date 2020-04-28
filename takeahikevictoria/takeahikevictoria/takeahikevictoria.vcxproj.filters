@@ -30,9 +30,6 @@
     <ClCompile Include="createSession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Trails.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TrailAdminSession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,9 +66,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TrailUserSession.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Trails.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="loggerHandler.hpp">
